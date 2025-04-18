@@ -6,6 +6,7 @@ import 'package:hostel_admin/providers/meal_controller.dart';
 import 'package:hostel_admin/views/homepage.dart';
 
 
+double Width=0;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -17,11 +18,11 @@ void main() async{
 
 class MyApp extends StatelessWidget {
 
-
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Width=MediaQuery.of(context).size.width;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Homepage(),

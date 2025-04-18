@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:elegant_notification/elegant_notification.dart';
 import 'package:flutter/material.dart';
+import 'package:hostel_admin/main.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Additemsday extends StatefulWidget {
@@ -47,7 +48,7 @@ class _AdditemsdayState extends State<Additemsday> {
         child: SingleChildScrollView(
           physics: ClampingScrollPhysics(),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
                 children: [
@@ -67,7 +68,7 @@ class _AdditemsdayState extends State<Additemsday> {
               Center(
                 child: isLoading
                     ? SizedBox(
-                        height: 400,
+                        height: 600,
                         width: MediaQuery.of(context).size.width * 0.9,
                         child: GridView.builder(
                           physics: NeverScrollableScrollPhysics(),
@@ -77,7 +78,7 @@ class _AdditemsdayState extends State<Additemsday> {
                             crossAxisSpacing: 10,
                             crossAxisCount: 2,
                           ),
-                          itemCount: 4,
+                          itemCount: 6,
                           itemBuilder: (context, index) {
                             return Shimmer.fromColors(
                               baseColor: Colors.grey[300]!,
@@ -96,14 +97,14 @@ class _AdditemsdayState extends State<Additemsday> {
                       )
                     : SizedBox(
                         height: height,
-                        width: MediaQuery.of(context).size.width * 0.9,
+                        // width: MediaQuery.of(context).size.width * 0.9,
                         child: GridView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                             mainAxisSpacing: 15,
                             crossAxisSpacing: 10,
-                            crossAxisCount: 2,
+                            crossAxisCount:Width>700?3: 2,
                             childAspectRatio: 0.85,                        ),
                           itemCount: items.length,
                           itemBuilder: (context, index) {
@@ -121,13 +122,14 @@ class _AdditemsdayState extends State<Additemsday> {
                                 });
                               },
                               child: Stack(
+                                alignment: Alignment.topCenter,
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Container(
-                                        height: 120,
-                                        width: 120,
+                                        height: Width>700?Width*0.2:Width*0.4,
+                                        width: Width>700?Width*0.2:Width*0.4,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(13),
@@ -144,6 +146,7 @@ class _AdditemsdayState extends State<Additemsday> {
                                           child: Image.network(
                                             "https://res.cloudinary.com/dvlnqyghc/image/upload/v1744569253/${items[index]}.png",
                                             fit: BoxFit.cover,
+                                            
                                             loadingBuilder: (context, child,
                                                 loadingProgress) {
                                               if (loadingProgress == null)
@@ -171,8 +174,8 @@ class _AdditemsdayState extends State<Additemsday> {
                                   ),
                                   if (isSelected)
                                     Positioned(
-                                      top: 6,
-                                      right: 6,
+                                      top: 8,
+                                      right:(Width>700)?100: 20,
                                       child: Icon(
                                         Icons.check_circle,
                                         color: Colors.green,

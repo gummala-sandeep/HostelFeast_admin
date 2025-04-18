@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hostel_admin/main.dart';
 import 'package:hostel_admin/providers/meal_controller.dart';
 import 'package:hostel_admin/views/DayItems.dart';
 
@@ -46,7 +47,7 @@ class Homepage extends StatelessWidget {
                   Text(
                     "${DateTime.now().day} March ${DateTime.now().year}",
                     style: TextStyle(
-                      color: colorTheme.tertiary,
+                      color:Colors.black,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -55,7 +56,7 @@ class Homepage extends StatelessWidget {
                     height: 4,
                     width: 4,
                     decoration: BoxDecoration(
-                      color: colorTheme.tertiary,
+                      color:Colors.black,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
@@ -63,7 +64,7 @@ class Homepage extends StatelessWidget {
                   Text(
                     days[DateTime.now().weekday - 1],
                     style: TextStyle(
-                      color: colorTheme.tertiary,
+                      color:Colors.black,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -72,11 +73,13 @@ class Homepage extends StatelessWidget {
               SizedBox(height: 16),
               Center(
                 child: Container(
-                  height: 150,
-                  width: MediaQuery.sizeOf(context).width * 0.9,
+                  height:Width>700?200: 150,
+                  
+                  width:Width>700?Width*0.4: MediaQuery.sizeOf(context).width * 0.8,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.black,
+                    
                   
                     ),
                   
@@ -110,10 +113,11 @@ class Homepage extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 7,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
-                      
+                      crossAxisCount: Width>700?2:1,
+                      crossAxisSpacing: 20,
+                      childAspectRatio: Width>700?8:4,
                       mainAxisSpacing: 12,
-                      childAspectRatio: 3,
+                      
                     ),
                     itemBuilder: (context, index) {
                       final day = days[index];
@@ -129,9 +133,14 @@ class Homepage extends StatelessWidget {
                           );
                         },
                         child: Container(
+                          
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Colors.black,
+                            gradient: LinearGradient(colors: 
+                            [
+                              const Color.fromARGB(255, 29, 29, 29),
+                              const Color.fromARGB(255, 67, 67, 67)
+                            ])
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16.0),

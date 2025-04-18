@@ -1,6 +1,7 @@
 import 'package:elegant_notification/elegant_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hostel_admin/main.dart';
 import 'package:hostel_admin/providers/meal_controller.dart';
 import 'package:hostel_admin/views/MealItems.dart';
 
@@ -44,9 +45,9 @@ class _AdditemsState extends State<Additems> {
                   return GridView.builder(
                     itemCount: meal.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 1,
+                        crossAxisCount: Width>700?2:1,
                         mainAxisSpacing: 30,
-                        childAspectRatio: 4),
+                        childAspectRatio:(Width>700)? 8:4),
                     itemBuilder: (context, index) {
                       final mealName = meal[index];
                       final done =
@@ -67,6 +68,7 @@ class _AdditemsState extends State<Additems> {
                           }
                         },
                         child: Container(
+                          margin: EdgeInsets.all(Width>700?10:0),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.black,

@@ -20,6 +20,9 @@ ThemeData getAppTheme() {
       onSurface: surfaceColor,
     ),
 
+
+
+    
     textTheme: GoogleFonts.poppinsTextTheme(
       ThemeData.light().textTheme.copyWith(
         displayLarge: const TextStyle(color: primaryColor),
@@ -39,3 +42,5 @@ ThemeData getAppTheme() {
     
   );
 }
+
+
