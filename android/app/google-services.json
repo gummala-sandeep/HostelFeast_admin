@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "107125014939",
+    "project_id": "smarthostel-c72d0",
+    "storage_bucket": "smarthostel-c72d0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107125014939:android:d6deede6a76eedf165a13e",
+        "android_client_info": {
+          "package_name": "com.example.hostel_admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDmrequlL78fFiYog7cqVeaubntcgCGvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107125014939:android:f2081cbf82c61b3965a13e",
+        "android_client_info": {
+          "package_name": "com.example.smarthostel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDmrequlL78fFiYog7cqVeaubntcgCGvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
